@@ -3,13 +3,14 @@
 # VERSION               0.1
 # DOCKER-VERSION        0.2
 
-from	ubuntu:12.04
+from	ubuntu:14.04
 # make sure the package repository is up to date
-run	echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list
+#run	echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list
 run	apt-get update
 
 # Install vnc, xvfb in order to create a 'fake' display and firefox
-run	apt-get install -y x11vnc xvfb firefox
+run	apt-get install -y x11vnc xvfb firefox  firefox lsb-release xul-ext-ubufox 
+
 run	mkdir /.vnc
 # Setup a password
 run	x11vnc -storepasswd 1234 ~/.vnc/passwd
